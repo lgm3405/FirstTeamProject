@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 4847795149268458636}
   - component: {fileID: 5890824158715274957}
   - component: {fileID: 2535022807231344157}
+  - component: {fileID: -5110470874128452926}
   m_Layer: 0
   m_Name: Enemy5
   m_TagString: Untagged
@@ -244,11 +245,24 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3648280952102151871}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5110470874128452926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3648280952102151871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ecf94831ef9d8044a7018a944aa1218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &3916351147525789876
 GameObject:
   m_ObjectHideFlags: 0

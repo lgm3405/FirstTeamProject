@@ -5,6 +5,11 @@ using UnityEngine;
 public class Enemy_Spawn : MonoBehaviour
 {
     public GameObject Enemy1Prefab;
+    public GameObject Enemy2Prefab;
+    public GameObject Enemy3Prefab;
+    public GameObject Enemy4Prefab;
+    public GameObject Enemy5Prefab;
+
     public float spawnRateMin = 0.5f;
     public float spawnRateMax = 3f;
 
@@ -29,12 +34,32 @@ public class Enemy_Spawn : MonoBehaviour
         if (timeAfterSpawn >= spawnRate)
         {
             timeAfterSpawn = 0f;
-            if (spawnLocation == 1)
+            if (spawnType == 1)
             {
+                GameObject Enemy1 = Instantiate(Enemy1Prefab, transform.position, transform.rotation);
+            }
+            else if (spawnType == 2)
+            {
+                GameObject Enemy2 = Instantiate(Enemy2Prefab, transform.position, transform.rotation);
 
             }
-            GameObject Enemy = Instantiate(Enemy1Prefab, transform.position, transform.rotation);
+            else if (spawnType == 3)
+            {
+                GameObject Enemy3 = Instantiate(Enemy3Prefab, transform.position, transform.rotation);
+
+            }
+            else if (spawnType == 4)
+            {
+                GameObject Enemy4 = Instantiate(Enemy4Prefab, transform.position, transform.rotation);
+
+            }
+            else if (spawnType == 5)
+            {
+                GameObject Enemy5 = Instantiate(Enemy5Prefab, transform.position, transform.rotation);
+            }
+
             spawnRate = Random.Range(spawnRateMin, spawnRateMax);
+            spawnType = Random.Range(1, 6);
         }
     }
 }

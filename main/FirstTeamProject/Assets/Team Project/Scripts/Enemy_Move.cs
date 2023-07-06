@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Enemy_Move : MonoBehaviour
 {
-    public float speed = 10;
-    private Rigidbody EnemySpawner3Rigidbody;
+    public float speed = 5;
+    private Rigidbody EnemySpawnerRigidbody;
     void Start()
     {
-        EnemySpawner3Rigidbody = GetComponent<Rigidbody>();
-        EnemySpawner3Rigidbody.velocity = transform.forward * speed;
+        EnemySpawnerRigidbody = GetComponent<Rigidbody>();
+        EnemySpawnerRigidbody.velocity = transform.forward * speed;
 
         Destroy(gameObject, 10f);
     }
