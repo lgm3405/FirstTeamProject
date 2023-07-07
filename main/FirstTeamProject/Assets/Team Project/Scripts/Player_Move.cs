@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player_Move : MonoBehaviour
 {
-    private Rigidbody playerRigid = default;
     public float speed = default;
+
+    private Rigidbody playerRigid = default;
 
     void Start()
     {
@@ -22,9 +23,5 @@ public class Player_Move : MonoBehaviour
 
         Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed);
         playerRigid.velocity = newVelocity;
-
-        
-        
-        
     }
 }
