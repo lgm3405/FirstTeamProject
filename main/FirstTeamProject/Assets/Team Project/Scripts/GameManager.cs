@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject gameoverText;
     public Text score;
-    public Text best_score;
+    public Text Best_score;
     public Text life;
 
     private int score_number;
@@ -24,14 +24,33 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isGameover == false)
+        if (!isGameover)
         {
             score.text = string.Format("Score : {0}", (int)score_number);
             life.text = string.Format("Life : {0}", (int)life_number);
         }
         else
         {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+        }
+    }
 
+    public void EndGame()
+    {
+        isGameover = true;
+        gameoverText.SetActive(true);
+
+        int best_score = PlayerPrefs.GetInt("BestScore");
+
+        if (score_number > best_score)
+        {
+            best_score = score_number;
+            PlayerPrefs.SetInt("BestScore", best_score);
+
+            Best_score.text = string.Format("Best Score : {0}", (int)best_score);
         }
     }
 
@@ -46,7 +65,7 @@ public class GameManager : MonoBehaviour
 
         if (life_number == 0)
         {
-            isGameover = true;
+            EndGame();
         }
     }
 }

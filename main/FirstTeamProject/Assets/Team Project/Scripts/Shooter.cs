@@ -7,6 +7,8 @@ public class Shooter : MonoBehaviour
     public GameObject BananaPrefab;
 
     private Rigidbody Bullet;
+    private float delay_time = 0.2f;
+    private float cool_time = default;
 
     void Start()
     {
@@ -15,10 +17,17 @@ public class Shooter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) == true)
+        cool_time += Time.deltaTime;
+
+        if (cool_time >= delay_time)
         {
-            GameObject Banana = Instantiate(BananaPrefab, transform.position, transform.rotation);
-            Bullet = GetComponent<Rigidbody>();
+            if (Input.GetKey(KeyCode.Space) == true)
+            {
+                GameObject Banana = Instantiate(BananaPrefab, transform.position, transform.rotation);
+                Bullet = GetComponent<Rigidbody>();
+
+                cool_time = 0;
+            }
         }
     }
 

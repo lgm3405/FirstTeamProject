@@ -10,9 +10,8 @@ public class Enemy_Spawn : MonoBehaviour
     public GameObject Enemy4Prefab;
     public GameObject Enemy5Prefab;
 
-    public float spawnRateMin = default;
-    public float spawnRateMax = default;
-
+    private float spawnRateMin = 1f;
+    private float spawnRateMax = 5f;
     private float spawnRate;
     private float timeAfterSpawn;
     private int spawnType;
@@ -20,7 +19,6 @@ public class Enemy_Spawn : MonoBehaviour
     void Start()
     {
         timeAfterSpawn = 0f;
-
         spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         spawnType = Random.Range(1, 6);
     }

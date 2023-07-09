@@ -511,6 +511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 16
+  EnemyEffectPrefab: {fileID: 4940684239782758182, guid: 0997ee293caf2c04d82fddf836cc2982, type: 3}
+  LineEffectPrefab: {fileID: 6868866270150663173, guid: 02f8dcafc3a7ad448b67b4dab4c4585d, type: 3}
 --- !u!1 &6222509965213056875
 GameObject:
   m_ObjectHideFlags: 0

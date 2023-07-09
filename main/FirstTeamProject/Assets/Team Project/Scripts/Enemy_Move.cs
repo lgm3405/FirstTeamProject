@@ -5,15 +5,21 @@ using UnityEngine;
 public class Enemy_Move : MonoBehaviour
 {
     public float speed = default;
+    public GameObject EnemyEffectPrefab;
+    public GameObject LineEffectPrefab;
 
     private Rigidbody EnemyRigidbody;
+    private Rigidbody EnemyEffectRigidbody;
+    private Rigidbody LineEffectRigidbody;
 
     void Start()
     {
         EnemyRigidbody = GetComponent<Rigidbody>();
-        EnemyRigidbody.velocity = transform.forward * speed;
+        EnemyEffectRigidbody = GetComponent<Rigidbody>();
+        LineEffectRigidbody = GetComponent<Rigidbody>();
 
-        Destroy(gameObject, 10f);
+        EnemyRigidbody.velocity = transform.forward * speed;
+        Destroy(gameObject, 30f);
     }
 
     void Update()
@@ -40,6 +46,9 @@ public class Enemy_Move : MonoBehaviour
         gamemanager.ScorePlus();
 
         gameObject.SetActive(false);
+
+        GameObject enemy_effect = Instantiate(EnemyEffectPrefab, transform.position, transform.rotation);
+        Destroy(gameObject, 3f);
     }
 
     public void LineDie()
@@ -48,5 +57,8 @@ public class Enemy_Move : MonoBehaviour
         gamemanager.LifeDown();
 
         gameObject.SetActive(false);
+
+        GameObject line_effect = Instantiate(LineEffectPrefab, transform.position, transform.rotation);
+        Destroy(gameObject, 3f);
     }
 }
